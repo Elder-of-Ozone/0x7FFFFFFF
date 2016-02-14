@@ -1,0 +1,225 @@
+{
+	"basics":
+	{
+		"name": 						"Aaron Fordham",
+    	"label":						"Hydrogeologist",
+    	"picture": 						"",
+    	"email": 						"a.fordham@iinet.net.au",
+    	"phone": 						"0433898969",
+    	"website": 						"http://0x7FFFFFFF.xyz",
+		"github":						"Github Address",
+    	"summary": 						"Striving to automate workflows.",
+    	"location": 
+		{
+      		"address": 					"",
+ 			"postalCode": 				"",
+     		"city": 					"",
+        	"countryCode": 				"",
+        	"region": 					""
+    	},
+    
+    	"profiles": 
+		[{
+        	"network": 					"LinkedIn",
+        	"username": 				"AaronFordham",
+        	"url": 						""
+      	},
+      	{
+        	"network": 					"",
+        	"username": 				"",
+        	"url": 						""
+      	}]
+ 	},
+  
+	"work": 
+	[{
+    	"company": 						"Jaycar Electronics",
+      	"position": 					"Sales Assistant",
+ 		"website": 						"",
+      	"startDate": 					"2014",  
+      	"endDate": 						"2016",
+      	"summary": 						"",
+      	"highlights": 
+		[
+										"Troubleshooting electronic faults",
+										"Constomer service - specialising in electrical components",
+										"Consistently achieving weekly and monthly sales targets ($10k)"			
+      	]
+    }, 
+    {
+      	"company": 						"CSIRO - Land & Water Division",
+      	"position": 					"Research Assistant",
+      	"website": 						"",
+      	"startDate": 					"2014",  
+      	"endDate": 						"2015",
+      	"summary": 						"Contract at CSIRO was based on furthering masters thesis",
+      	"highlights": 
+		[
+										"Conceptual modelling on the interactions between fresh water lenses and the underlying saline groundwater",
+										"Integration of numerical modelling packages MODFLOW, MTD3DS and SEAWAT",
+										"Developed a groundwater flow model of the northern aquifers in Kuwait"
+
+    	]
+ 	},
+    { 
+      	"company": 						"RPS Group PLC",
+      	"position": 					"Intern",
+      	"website": 						"",
+      	"startDate": 					"April 2014",  
+      	"endDate": 						"",
+      	"summary": 						"Internship focused primarily on indepentently reproducing results of Port Coogee aquifer storage project from obtained data.",
+      	"highlights": 
+		[
+										"Geochemical analysis using PHREEQC with biological interpretations",
+										"Estimating hydraulic conductivity from injection tests ",
+										"Conceptual bore design"
+      	]
+    },
+	{
+		"company":						"KBL Mining Limited",
+		"position":						"Geologist Assistant",
+		"website":						"",
+		"startDate":					"2012",
+		"endDate":						"2013",
+		"summary":						"Maintain and update historical information and valuable fieldwork",
+		"highlights": 
+		[
+										"",
+										"Generate scripts to convert data into a useable uniform format - saving hours of manual work.",
+										""
+		]
+	}],
+  
+	"volunteer": 
+	[{
+      	"organization":				 	"University of Western Australia Postgraduate Students' Asssociation",
+      	"position": 					"Vice President (Coursework)",
+      	"website": 						"",
+      	"startDate": 					"2015-01-01",
+      	"endDate": 						"2015-01-02",
+      	"summary": 						"Representing postgraduate coursework students on their behalf ",
+      	"highlights": 
+		[
+        								"Chairperson of various subcommittees including policy and fundraising",
+										"Representing postgraudate coursework students on the board of coursework studies."
+      	]
+    }],
+  
+	"education": 
+	[{
+      	"institution": 					"University of Western Australia",
+      	"area": 						"Hydrogeology",
+      	"studyType":			 		"Masters",
+		"thesis":						"Thesis title",
+      	"startDate": 					"2013",
+      	"endDate": 						"2015",
+      	"gpa": 							"",
+      	"courses": 
+		[
+        								"Advanced Hydrogeology",
+										"Hydrogeological Impact Assessment",
+        								"Remediation of Soils and Groundwater"
+      	]
+	},
+	{
+		"institution":					"University of New South Wales",
+		"area":							"Environmental Science (Hons)",
+		"studyType":					"Bachelors",
+		"startDate":					"2009",
+		"endDate":						"2012",
+		"courses":
+		[
+										"Environment and Contaminant Geochemistry",
+										"Ground and Surface Water",
+										"Environmental Impact Assessment",
+										"3D Geological Modelling"
+										
+		]
+	
+	
+	
+	}],
+  	
+	"awards": 
+	[{
+    	"title":				 		"Summar Scholarship",
+      	"date": 						"2014-11-01",
+      	"awarder": 						"National Centre for Groundwater Research and Training",
+      	"summary": 						"Scholarship to support honours."
+    }],
+  
+	"publications": 
+	[{
+    	"name": 						"",
+     	"publisher": 					"",
+      	"releaseDate": 					"",
+      	"website":				 		"",
+      	"summary": 						""
+    }],
+  
+	"skills": 
+	[{
+
+		"name":							"Programming",
+		"level":						"Master",
+		"keywords":						
+		[					
+										"Python, C++, Objective C, Mathematica"
+		]
+
+	},
+	{
+    	"name": 						"Web Development",
+     	"level": 						"Master",
+      	"keywords": 
+		[
+										"Django",
+        								"HTML",
+        								"CSS",
+       					 				"Javascript"
+      	]
+    },
+    {
+    	"name": 						"Geoscience Applications",
+      	"level": 						"Master",
+      	"keywords": 
+		[
+        								"MODFLOW: Processing MODFLOW, Flopy",
+        								"FEFLOW",
+        								"PHREEQC",
+										"ArcGIS ver. 10"
+      	]
+	}],
+  
+	"languages": 
+	[{
+     	"language": 					"",
+      	"fluency": 						""
+    }],
+  
+	"interests": 
+	[{
+      	"name": 						"Home Automation",
+      	"keywords": 
+		[
+        								"Crafting arduino shields with real time home monitoring on webserver."
+      	]
+    },
+    {
+		"name": 						"Programming",
+		"keywords": 
+		[
+										"Automating workflows using python and zsh."
+		]
+    }],
+  
+	"references": 
+	[{
+      	"name": 						"Carl Davies",
+      	"reference":			 		""
+    },
+	{
+		"name":							"",
+		"reference":					""
+	}]
+}
