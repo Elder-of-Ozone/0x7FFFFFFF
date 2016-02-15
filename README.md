@@ -11,6 +11,6 @@ Installation
 - git pull website
 - using nginx and uwsgi
 
-- Need to install python-dev
+- Need to install python-dev.
 
 
