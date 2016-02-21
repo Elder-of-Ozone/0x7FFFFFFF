@@ -104,8 +104,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 STATICFILES_DIR = (
-            os.path.join(BASE_DIR, 'static/'),
-            
-           # '/home/hydrius/Documents/0x7FFFFFFF/_0x7FFFFFFF',
+            os.path.join(BASE_DIR, 'static/'), 
+           '/home/hydrius/Documents/0x7FFFFFFF/_0x7FFFFFFF',
             )
 

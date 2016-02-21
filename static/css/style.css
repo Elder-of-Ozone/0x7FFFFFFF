@@ -6,7 +6,6 @@ body {
 
 #container {
 		padding-left: 200px;	
-		padding-right: 190px;
 }
 	
 #container .column {
@@ -66,8 +65,8 @@ html #footer-wrapper {
 		float: left;
 		position: relative;
 		width: 100%;
-		padding-bottom: 10010px;
-		margin-bottom: -10000px;
+		padding-bottom: 110px;
+		margin-bottom: -100px;
 		background: #fff;
 		
 }
@@ -86,6 +85,7 @@ p {
 }
 		
 nav ul {
+		position: fixed;
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
@@ -118,12 +118,18 @@ header, #footer {
 		padding-top: 1em;
 }
 
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
 
+.dropdown-contents{
+	display: none;
+}
 
-
-
-
-
+.dropdown:hover .dropdown-contents{
+	display:block;
+}
 
 
 
