@@ -36,21 +36,22 @@
     	"company": 						"Jaycar Electronics",
       	"position": 					"Sales Assistant",
  		"website": 						"",
-      	"startDate": 					"2014",  
+      	"startDate": 					"2016",  
       	"endDate": 						"2016",
       	"summary": 						"",
       	"highlights": 
 		[
-										"Troubleshooting electronic faults",
-										"Constomer service - specialising in electrical components",
-										"Consistently achieving weekly and monthly sales targets ($10k)"			
+										"Consistently achieved weekly and monthly sales targets ($10k)",
+										"Diagnosing electronic faults",
+										"Constomer service - specialising in electronic components"
+												
       	]
     }, 
     {
       	"company": 						"CSIRO - Land & Water Division",
       	"position": 					"Research Assistant",
       	"website": 						"",
-      	"startDate": 					"2014",  
+      	"startDate": 					"2015",  
       	"endDate": 						"2015",
       	"summary": 						"Contract at CSIRO was based on furthering masters thesis",
       	"highlights": 
@@ -65,8 +66,8 @@
       	"company": 						"RPS Group PLC",
       	"position": 					"Intern",
       	"website": 						"",
-      	"startDate": 					"April 2014",  
-      	"endDate": 						"",
+      	"startDate": 					"2014",  
+      	"endDate": 						"2014",
       	"summary": 						"Internship focused primarily on indepentently reproducing results of Port Coogee aquifer storage project from obtained data.",
       	"highlights": 
 		[
