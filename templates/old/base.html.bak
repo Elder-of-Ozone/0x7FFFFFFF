@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- Template by quackit.com -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	{% block title_html %}
+	{% endblock %}	
+
+	<!---<title>0x7FFFFFFF - stepping close to overflow</title>-->
+
+
+	{% load staticfiles %}
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+	
+</head>
+	<body>
+		<header id="header"><p><center>0x7FFFFFFF</center></p></header>
+		<div id="container">
+			<main id="center" class="column">
+				<article>
+					{% block body_html %}
+					{% endblock %}	
+				</article>								
+			</main>			
+			
+			<nav id="left" class="column">
+				<div class="dropdown">	
+					<a href="http://0x7FFFFFFF.xyz">Home</a>	
+					<ul>	
+						<li><a href="http://github.com/elder-of-ozone">Github</a></li>
+						<li>Resume<a href="#">(PDF/</a><a href="#">JSON)</a></li>
+						<li>Programming</li>
+						<div class="dropdown-contents">
+							<ul>	
+								<li>Project 1</li>
+							</ul>
+						</div>
+						<li>Electronics</li>
+						<div class="dropdown-contents">
+							<ul>	
+								<li>Project 1</li>
+							</ul>
+						</div>
+						
+	
+					</ul>
+				</div>
+			</nav>
+						
+		</div>
+		<div id="footer-wrapper">
+			<footer id="footer"><p>This website is created purely for my wife and I. </p></footer>
+		</div>
+	</body>
+</html>
+
+

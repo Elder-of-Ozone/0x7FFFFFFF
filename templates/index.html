@@ -1,108 +1,31 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+{% extends "base.html" %}
 
-  <head>
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+{% block title_html%}
 
-  <!-- Enable responsiveness on mobile devices-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+ 0x7FFFFFFF &middot; Technology, the Environment and Life 
 
-  <title>
-  
-	{% block title_html %}
-	{% endblock %}
-    
-  </title>
-
-  <!-- CSS -->
-
-  {% load staticfiles %}
-
-  <link rel="stylesheet" href="{% static 'css/poole.css' %}">
-  <link rel="stylesheet" href="{% static 'css/syntax.css' %}">
-  <link rel="stylesheet" href="{% static 'css/hyde.css'  %}" >
-  <link rel="stylesheet" href="{% static 'css/oliversmith.css' %}">
-  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-
-  <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="public/apple-touch-icon-144-precomposed.png">
-                                 <link rel="shortcut icon" href="public/favicon.ico">
-
-  <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="atom.xml">
-</head>
+{% endblock %}
 
 
-  <body>
 
-    <div class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
-      <h1><a href="index.html">0x7FFFFFFF</a></h1>
-      <p class="lead">Technology, the Environment and Life</p>
-    </div>
+{% block body_html %}
 
-    <ul class="nav-links">
-          <li><a href="#">Technology</a></li>
-          <li><a href="">Environment</a></li>
-          <li><a href="#">Fitbit</a></li>
-          <li><a href="about.html">About Me</a></li>
-    </ul>
-    <div class="sidebar-colophon">
-      <ul class="colophon-links">
-        <li>
-                <a href="#"><i class="fa fa-twitter-square fa-3x"></i> </a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-flickr fa-3x"></i></a>
-              </li>
-              <li>
-                <a href="https:///au.linkedin.com/in/aaronfordham/"><i class="fa fa-linkedin-square fa-3x"></i></a>
-              </li>
-      </ul>
+<div class = "content container">
+	<div class="post">
+		<h1 class="post-title">  This page is still under construction</h1>
+		<span class ="post-date"> 28 Feb 2016 </span>
+
+		<p> Welcome Internet Explorers</p>
+
+		<p> This is just a website to showcase some of my projects. Please 
+			read my About Me section to learn more (not up yet)
+		
+		</p>
+	</div>
 
 
-    <p>&copy; 2016. All rights reserved.</p>
-    </div>
-  </div>
+
+
 </div>
 
-	{% block body_html %}
-	{% endblock %}
-
-
-    <div class="content container">
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="#">
-    	Test
-      </a>
-    </h1>
-
-    <span class="post-date">03 Jan 2016</span>
-	<p> Text goes here </p>
-  </div>
-</div>
-
-
-  </body>
-
-  
-  
-  <!-- Google Analytics -->
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-12860428-1', 'auto');
-ga('send', 'pageview');
-
-</script>
-<!-- End Google Analytics -->
- <script src="public/js/picturefill.min.js" type="text/javascript"></script>
-</html>
-
+{% endblock %}

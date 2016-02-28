@@ -1,0 +1,253 @@
+{
+	"basics":
+	{
+		"name": 						"Aaron Fordham",
+    	"label":						"Hydrogeologist",
+    	"picture": 						"",
+    	"email": 						"a.fordham@iinet.net.au",
+    	"phone": 						"0433898969",
+    	"website": 						"http://0x7FFFFFFF.xyz",
+		"github":						"http://github.com/elder-of-ozone",
+    	"summary": 						"Striving to automate workflows.",
+    	"location": 
+		{
+      		"address": 					"",
+ 			"postalCode": 				"",
+     		"city": 					"",
+        	"countryCode": 				"",
+        	"region": 					""
+    	},
+    
+    	"profiles": 
+		[{
+        	"network": 					"LinkedIn",
+        	"username": 				"AaronFordham",
+        	"url": 						""
+      	},
+      	{
+        	"network": 					"",
+        	"username": 				"",
+        	"url": 						""
+      	}]
+ 	},
+  
+	"work": 
+	[{
+    	"company": 						"Jaycar Electronics",
+      	"position": 					"Sales Assistant",
+ 		"website": 						"",
+      	"startDate": 					"2016",  
+      	"endDate": 						"2016",
+		"date1":							"2014 - current",
+      	"summary": 						"",
+      	"highlights": 
+		[
+										"Consistently achieved weekly and monthly sales targets ($10,000).",
+										"Diagnosed electronic faults for a variety of circuit boards.",
+										"Customer service - specialised in electronic components."
+												
+      	]
+    }, 
+    {
+      	"company": 						"CSIRO - Land & Water Division",
+      	"position": 					"Research Assistant",
+      	"website": 						"",
+      	"startDate": 					"2015",  
+      	"endDate": 						"2015",
+		"date1":							"2014 - 2015",
+      	"summary": 						"Contract at CSIRO was based on furthering master's project.",
+      	"highlights": 
+		[
+										"Analyse geological, hydrogeological and geochemical data in preparation for conceptual and numerical model.",
+										"Developed a hydrogeological conceptual model between the interactions of fresh groundwater lenses and the underlying saline groundwater.",
+										"Constructed steady-state and transient numerical models with Processing MODFLOW software using MTD3DS and SEAWAT packages."
+
+    	]
+ 	},
+    { 
+      	"company": 						"RPS Group PLC",
+      	"position": 					"Intern",
+      	"website": 						"",
+      	"startDate": 					"2014",  
+      	"endDate": 						"2014",
+		"date1":							"May 2014",
+      	"summary": 						"Internship focused primarily on independently reproducing results of Port Coogee aquifer storage project.",
+      	"highlights": 
+		[
+										"Geochemical analysis using PHREEQC with biological interpretations.",
+										"Estimated hydraulic conductivity from injection tests.",
+										"Conceptual bore design for a nutrient-laden limestone aquifer."
+      	]
+    },
+	{
+		"company":						"KBL Mining Limited",
+		"position":						"Geologist Assistant",
+		"website":						"",
+		"startDate":					"2012",
+		"endDate":						"2013",
+		"date1":							"2012 - 2013",
+		"summary":						"Maintained the historical database.",
+		"highlights": 
+		[
+										"Updated database from historical reports.",
+										"Generated scripts to convert the existing database into usable uniform formats - saving weeks of manual work.",
+										"Received valuable fieldwork experience with core logging on reverse circulation drill rig.",
+										"Geochemical sampling using portable X-ray fluorescence devices."
+		]
+	}],
+  
+	"volunteer": 
+	[{
+      	"organization":				 	"University of Western Australia Postgraduate Students' Association",
+      	"position": 					"Vice President (Coursework)",
+      	"website": 						"",
+      	"startDate": 					"2013",
+      	"endDate": 						"2015",
+		"date1":						"2014",
+		
+      	"summary": 						"Represented postgraduate coursework students at University of Western Australia",
+      	"highlights": 
+		[
+										"Chairperson of policy and fundraising subcommittees.",
+										"Member of the Board of Coursework Studies."
+
+      	]
+    },
+	{
+		"organization": 				"Department of Earth and Environment Talk Series",
+		"position":						"Treasurer",
+		"website":						"",
+		"startDate":					"2013",
+		"endDate":						"2013",
+		"date1":							"2013",
+		"summary":						"Managed $1,000 grant for small talk series in UWA's geoscience department.",
+		"highlights":
+		[
+										"Successfully delivered a budget proposal for $1,000 financial grant.",
+										"Kept up to date records for all transactions every fortnight across 30 weeks.",
+										"Communicated financial position to committee members."
+
+		]
+
+	}],
+  
+	"education": 
+	[{
+      	"institution": 					"University of Western Australia",
+      	"area": 						"Hydrogeology",
+      	"studyType":			 		"Masters",
+		"thesis":						"The persistence of fresh groundwater in the Raudhatain and Umm Al-Aish provinces, Northern Kuwait.",
+      	"startDate": 					"2013",
+      	"endDate": 						"2015",
+		"date1":						"2013 - 2015",
+      	"gpa": 							"",
+      	"courses": 
+		[
+        								"Advanced Hydrogeology",
+										"Hydrogeological Impact Assessment",
+        								"Remediation of Soils and Groundwater"
+      	]
+	},
+	{
+		"institution":					"University of New South Wales",
+		"area":							"Environmental Science (Hons)",
+		"thesis":						"Hydraulic connection between the Bell River, Wellington Caves and adjacent alluvial aquifers.",
+		"studyType":					"Bachelors",
+		"startDate":					"2009",
+		"endDate":						"2012",
+		"date1":						"2009 - 2012",
+		"courses":
+		[
+										"Environment and Contaminant Geochemistry",
+										"Ground and Surface Water",
+										"Environmental Impact Assessment",
+										"3D Geological Modelling"
+										
+		]
+	
+	
+	
+	}],
+  	
+	"awards": 
+	[{
+    	"title":				 		"Summer Scholarship",
+      	"date": 						"2012",
+      	"awarder": 						"National Centre for Groundwater Research and Training",
+      	"summary": 						"Scholarship to support my honours' year."
+    },
+	{
+		"title":						"Postgraduate Scholarship",
+		"date":							"2015",
+		"awarder":						"Commonwealth Scientific and Industrial Research Organisation (CSIRO)",
+		"summary":						"Scholarship to support my masters' year"
+	}],
+  
+	"publications": 
+	[{
+    	"name": 						"",
+     	"publisher": 					"",
+      	"releaseDate": 					"",
+      	"website":				 		"",
+      	"summary": 						""
+    }],
+  
+	"skills": 
+	[{
+
+		"name":							"Programming Languages",
+		"level":						"Intermediate",
+		"keywords":						
+		[					
+										"Python, C++, Objective C, Mathematica"
+		]
+
+	},
+    {
+    	"name": 						"Geoscience Applications",
+      	"level": 						"Intermediate",
+      	"keywords": 
+		[
+        								"Processing MODFLOW",
+										"Flopy",
+        								"FEFLOW",
+        								"PHREEQC",
+										"ArcGIS ver. 10"
+      	]
+	}],
+  
+	"languages": 
+	[{
+     	"language": 					"",
+      	"fluency": 						""
+    }],
+  
+	"interests": 
+	[{
+      	"name": 						"Home Automation and Electronics",
+      	"keywords": 
+		[	
+										"Prototyping and coupling sensors for real time home monitoring on web server."
+      	]
+    },
+    {
+		"name": 						"Computer Science",
+		"keywords": 
+		[
+										"Utilising API's to integrate multiple applications together."
+		]
+    }],
+  
+	"references": 
+	[{
+      	"name": 						"Ryan Vogwill",
+		"position":						"Associate Professor",
+		"company":						"University of Western Australia",
+      	"reference":			 		""
+    },
+	{
+		"name":							"Andrew Waite",
+		"company":						"Jaycar Electronics",
+		"position":						"Cluster Manager"
+	}]
+}

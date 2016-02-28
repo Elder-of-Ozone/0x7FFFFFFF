@@ -137,7 +137,7 @@ abbr {
   font-size: 85%;
   font-weight: bold;
   color: #555;
-  text-transform: uppercase;
+  text-transform: none;
 }
 abbr[title] {
   cursor: help;
@@ -231,7 +231,7 @@ tbody tr:nth-child(odd) th {
  */
 
 .lead {
-  font-size: 1.25rem;
+  font-size: 1.25em;
   font-weight: 300;
 }
 
