@@ -1,0 +1,743 @@
+<!doctype html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+        <title>Aaron Fordham</title>
+        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700'
+        rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600'
+        rel='stylesheet' type='text/css'>
+        <style>
+            body, html {
+              padding-top:2.5em;
+              margin:0;
+              background-color:#fafafa;
+            }
+            
+            .note {
+              display:block;
+              position: absolute;
+              top:10px;
+              left:10px;
+            
+              font-family: "Open Sans";
+              font-size: 0.6em;
+            }
+            
+            .new {
+              background-color: #81C784;
+            
+              border: 1px solid #757575;
+              padding: 1px;
+              border-radius: 4px;
+            
+            }
+            
+            /* Header */
+            
+            header {
+              width:100%;
+              vertical-align: middle;
+              text-align: center;
+             
+            }
+            
+            .header-content {
+              display: inline-block;
+            }
+            
+            .pic {
+              margin: 0 auto;
+              margin-top:-2.5em;
+              
+              border-radius:10em;
+              height:4em;
+              width:4em;
+              
+              border: 2px solid #e0e0e0;
+              transition : all 0.5s linear;
+              
+            }
+            
+            @-webkit-keyframes wiggle {
+              0%   {
+                transform: rotate(0deg);
+              }
+              25%  {
+                transform: rotate(-30deg);
+              }
+              50%  {
+                transform: rotate(15deg);
+              }
+              100% {
+                transform: rotate(0deg);
+              }
+            }
+            
+            .pic:hover {
+              /*Webkit fix*/
+              -webkit-transform: translateZ(0);
+              
+              cursor:pointer;
+              
+              -webkit-animation: wiggle 0.7s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+            }
+            
+            .header-text {
+              margin-top:0.5em;
+              margin-left:1em;
+            }
+            
+            header p {
+              text-align:center;
+              font-family: "Merriweather";
+              
+              margin:0;
+              
+              color: #212121;
+            }
+            
+            .first-name {
+               font-size: 1.05em;
+            }
+            
+            .subtitle {
+              font-family: "Merriweather";
+              padding-top:.3em;
+              font-size:0.55em;
+              font-weight:500;
+              color: #424242;
+            }
+            
+            /* Information */
+            
+            .paper {
+              margin: 0 auto;
+              margin-bottom:1em;
+              
+              background-color:white;
+              width:60%;
+              
+              padding:0.5em 0 0.5em 0;
+              
+              border-top: 1px solid #e0e0e0;
+              border-left: 1px solid #e0e0e0;
+              border-right: 1px solid #e0e0e0;
+              border-bottom: 3px solid #e0e0e0;
+              border-radius:3px;
+            }
+            
+            @media(max-width:992px) {
+              .paper {
+                width:80%;
+              }
+            }
+            
+            /* Content Part */
+            
+            .content-wrapper {
+              padding-right:7.25%;
+            }
+            
+            .content {
+              display:table;
+              width:100%;
+              
+              padding-top:1.5em;
+              
+              /*border-top: 1px solid #eeeeee;*/
+            }
+            
+            .content:last-child {
+              margin-bottom: 2em;
+            }
+            
+            body > div > article > div > section:last-child {
+              padding-bottom:1.5em;
+            }
+            
+            .row {
+                display:table-row;
+            }
+            .row div {
+                display:table-cell;
+            }
+            
+            .content-cat {
+              font-family: "Merriweather";
+              font-variant:small-caps;
+              font-weight:300;
+              letter-spacing: 1px;
+              
+              color: #212121;
+              
+              font-size:0.975em;
+              
+              text-align:center;
+              vertical-align:middle;
+            
+              padding-left:6.66%;
+              width:30%;
+            }
+            
+            .content-cat p {
+              font-size:0.55em;
+              font-weight:600;
+              
+              margin-bottom:0;
+            }
+            
+            .content-text {
+              border-left:1px solid #e0e0e0;
+              transition: border 0.66s ease-in;
+            }
+            
+            .big-text {
+              vertical-align:top;
+            }
+            
+            .content-text ul {
+              padding:0;
+              margin:0;
+              margin-top:0.15em;
+              
+              width:85%;
+              margin-left:1.5em;
+            }
+            
+            .content-text ul:last-child {
+              margin-bottom:0.5em;
+            }
+            
+            .content-text ul li {
+              font-family: "Open Sans";
+              font-size:0.7em;
+              
+              display:inline-block;
+              
+            }
+            
+            .content-text ul li:first-child {
+              width:35%;
+              
+              color: #424242;
+              
+              font-weight:600;
+            }
+            
+            .content-text ul li a, div.content-text.work-listing.education-listing > p > strong > a {
+              text-decoration: none;
+              color: #0277bd;
+              font-size:1em;
+            }
+            
+            .content-text ul li a:hover {
+              color:#4fc3f7;
+            }
+            
+            .work-listing p {
+              font-family: "Open Sans";
+              font-size:0.7em;
+              
+              color: #424242;
+              
+              margin-left:2em;
+              margin-top:0.45em;
+              margin-bottom: 0.45em;
+            }
+            
+            div.content-text.work-listing.education-listing > p:nth-child(2) {
+              margin-top:0.25em;
+            }
+            
+            .work-listing .highlight {
+              font-family: "Open Sans";
+              font-size:0.7em;
+              font-weight:400;
+              
+              color: #424242;
+              
+              margin-left:3.25em;
+              padding-left:0.5em;
+              
+              border-left:1px solid #e0e0e0;
+              
+            }
+            
+            
+            .education-listing > .heading1 {
+            
+              font-weight:600;
+              margin-top:0.75em;
+              margin-left:1.5em;
+              padding: 0;
+            
+            }
+            
+            .education-listing > .heading {
+              font-weight:600;
+              margin-top:0.75em;
+              margin-left:2em;
+            }
+            
+            .education-listing > .highlight {
+              margin-left:3.25em;
+            }
+            
+            .highlight {
+              transition: border .33s ease-in;
+            }
+            
+            .profiles-listing ul li, .profiles-listing ul li:first-child {
+              width:32%;
+              font-weight: normal;
+            }
+            
+            .work-content, .education-content {
+              padding-top: .75em;
+            }
+            
+            section.content.education-content > div > div.content-cat {
+              vertical-align: top;
+            }
+            
+            div.content-text.skills-listing > p {
+              font-family: "Open Sans";
+              font-size:0.7em;
+              font-weight:400;
+            
+              margin-left: 2em;
+              margin-top: 0.45em;
+              margin-bottom: 0.45em;
+            }
+            
+            div.content-text.skills-listing > p > {
+              color:#212121;
+            }
+            
+            .pdf-space {
+            	margin-bottom: 5cm;
+            }
+        </style>
+        <style media="print">
+            body, html {
+              background-color: white;
+              padding-top: 1.5em;
+            }
+            
+            .paper {
+              width:100%;
+              border: 0;
+            
+              padding-top: 0;
+            }
+            
+            header p {
+              font-size: 1.3em;
+            }
+            
+            .subtitle {
+              font-size: 0.7em;
+            }
+            
+            .header-pic {
+              float:left;
+            }
+            
+            .profiles {
+              display:none;
+            }
+            
+            .content {
+              page-break-inside:avoid; 
+              page-break-after:auto;
+            }
+            
+            .header-text {
+              float:left;
+              margin-top: -1.6em;
+            }
+            
+            .content-wrapper > .content:first-child {
+              padding-top: 2em;
+            }
+            
+            .content:last-child {
+              padding-bottom: 0;
+            }
+            
+            .content-cat {
+              width:33%;
+              color:black;
+              text-align: left;
+            }
+            
+            .content-cat p {
+              font-size:0.6em;
+              font-weight: 600;
+            }
+            
+            header p, .content-text, .work-listing p, .content-text ul li:first-child, .work-listing .highlight, .content-text.skills-listing > ul > li > .highlight {
+              color:black;
+            }
+            
+            .content-text.skills-listing > ul > li span, .subtitle {
+              color:#212121;
+            }
+            
+            .content-text ul:last-child {
+              margin-bottom: 0.25em;
+            }
+            
+            .content-text ul li:first-child {
+              width:50%;
+            }
+            
+            .profiles-listing ul li:first-child {
+              width:32%;
+            }
+            
+            div.content-text.skills-listing > ul > li {
+              width:33%;
+            }
+            
+            .work-listing p {
+              margin-bottom: 0.1em;
+            }
+            
+            div.content-text.skills-listing > ul > li > p {
+              margin-top: 0.4em;
+              margin-bottom: 0.5em;
+            }
+            
+            div.content-text.skills-listing > ul > li {
+              padding-left: 1.5em;
+            }
+            
+            div.content-text.skills-listing > ul > li:first-child {
+              padding-left: 2em;
+            }
+            
+            .note {
+              display:none;
+            }
+            
+            .content-text:hover {
+              border-left:1px solid #eeeeee;
+            }
+            
+            .content-text ul li a:hover {
+              color:#4fc3f7;
+            }
+            
+            .highlight:hover, .content-text.skills-listing > ul > li > .highlight:hover {
+              border-left:1px solid #eeeeee;
+            }
+            
+            .big-text {
+              padding-top: 0;
+            }
+        </style>
+    </head>
+    
+    <body>	<span class="note">Check out new print view! (<strong>Press Ctrl + P</strong>) (Not available in Live-Editor!)</span>
+
+        <div
+        class="resume-wrapper">
+            <article class="paper">
+                <header>
+                    <div class="header-content">
+                        <div class="header-text">
+                            <p>Aaron Fordham</p>
+                            <p class="subtitle">Hydrogeologist</p>
+                        </div>
+                    </div>
+                </header>
+                <div class="content-wrapper">
+                    <!-- CONTACT -->
+                    <section class="content">
+                        <div class="row">
+                            <div class="content-cat">Contact</div>
+                            <div class="content-text">
+                                <ul>
+                                    <li>Phone</li>
+                                    <li>0433898969</li>
+                                </ul>
+                                <ul>
+                                    <li>Email</li>
+                                    <li>a.fordham@iinet.net.au</li>
+                                </ul>
+                                <ul>
+                                    <li>Website</li>
+                                    <li>http://0x7FFFFFFF.xyz</li>
+                                </ul>
+                                <ul>
+                                    <li>Github</li>
+                                    <li>http://github.com/elder-of-ozone</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content">
+                        <div class="row">
+                            <div class="content-cat big-text">Work Experience
+                                <p>2014 - current</p>
+                            </div>
+                            <div class="content-text work-listing education-listing">
+                                <p style="margin-top:2.4em;">	<strong>Sales Assistant</strong> at <strong>Jaycar Electronics</strong>
+
+                                </p>
+                                <p></p>
+                                <p class="highlight">Consistently achieved weekly and monthly sales targets ($10,000).</p>
+                                <p
+                                class="highlight">Diagnosed electronic faults for a variety of circuit boards.</p>
+                                    <p class="highlight">Customer service - specialised in electronic components.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content work-content">
+                        <div class="row">
+                            <div class="content-cat big-text">
+                                <p>2014 - 2015</p>
+                            </div>
+                            <div class="content-text work-listing education-listing">
+                                <p>	<strong>Research Assistant</strong> at <strong>CSIRO - Land &amp; Water Division</strong>
+
+                                </p>
+                                <p>Contract at CSIRO was based on furthering master&#x27;s project.</p>
+                                <p
+                                class="highlight">Analyse geological, hydrogeological and geochemical data in preparation
+                                    for conceptual and numerical model.</p>
+                                    <p class="highlight">Developed a hydrogeological conceptual model between the interactions
+                                        of fresh groundwater lenses and the underlying saline groundwater.</p>
+                                    <p
+                                    class="highlight">Constructed steady-state and transient numerical models with Processing
+                                        MODFLOW software using MTD3DS and SEAWAT packages.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content work-content">
+                        <div class="row">
+                            <div class="content-cat big-text">
+                                <p>May 2014</p>
+                            </div>
+                            <div class="content-text work-listing education-listing">
+                                <p>	<strong>Intern</strong> at <strong>RPS Group PLC</strong>
+
+                                </p>
+                                <p>Internship focused primarily on independently reproducing results of Port
+                                    Coogee aquifer storage project.</p>
+                                <p class="highlight">Geochemical analysis using PHREEQC with biological interpretations.</p>
+                                <p
+                                class="highlight">Estimated hydraulic conductivity from injection tests.</p>
+                                    <p class="highlight">Conceptual bore design for a nutrient-laden limestone aquifer.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content work-content">
+                        <div class="row">
+                            <div class="content-cat big-text">
+                                <p>2012 - 2013</p>
+                            </div>
+                            <div class="content-text work-listing education-listing">
+                                <p>	<strong>Geologist Assistant</strong> at <strong>KBL Mining Limited</strong>
+
+                                </p>
+                                <p>Maintained the historical database.</p>
+                                <p class="highlight">Updated database from historical reports.</p>
+                                <p class="highlight">Generated scripts to convert the existing database into usable uniform
+                                    formats - saving weeks of manual work.</p>
+                                <p class="highlight">Received valuable fieldwork experience with core logging on reverse circulation
+                                    drill rig.</p>
+                                <p class="highlight">Geochemical sampling using portable X-ray fluorescence devices.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content">
+                        <div class="row">
+                            <div class="content-cat big-text">Education
+                                <p>2013 - 2015</p>
+                            </div>
+                            <div class="content-text work-listing education-listing">
+                                <p style="margin-top:2.4em"><strong>University of Western Australia</strong>
+                                </p>
+                                <p>Masters: Hydrogeology</p>
+                                <p>Thesis Title</p>
+                                <p class="highlight">The persistence of fresh groundwater in the Raudhatain and Umm Al-Aish
+                                    provinces, Northern Kuwait.</p>
+                                <p>Relevant Courses</p>
+                                <p class="highlight">Advanced Hydrogeology</p>
+                                <p class="highlight">Hydrogeological Impact Assessment</p>
+                                <p class="highlight">Remediation of Soils and Groundwater</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content education-content">
+                        <div class="row">
+                            <div class="content-cat big-text">
+                                <p>2009 - 2012</p>
+                            </div>
+                            <div class="content-text work-listing education-listing">
+                                <p><strong>University of New South Wales</strong>
+                                </p>
+                                <p>Bachelors: Environmental Science (Hons)</p>
+                                <p>Thesis Title</p>
+                                <p class="highlight">Hydraulic connection between the Bell River, Wellington Caves and adjacent
+                                    alluvial aquifers.</p>
+                                <p>Relevant Courses</p>
+                                <p class="highlight">Environment and Contaminant Geochemistry</p>
+                                <p class="highlight">Ground and Surface Water</p>
+                                <p class="highlight">Environmental Impact Assessment</p>
+                                <p class="highlight">3D Geological Modelling</p>
+                            </div>
+                        </div>
+                    </section>
+                    <p class="pdf-space">
+                        <br>
+                    </p>
+                    <section class="content">
+                        <div class="row">
+                            <div class="content-cat big-text">Volunteer
+                                <p>2014</p>
+                            </div>
+                            <div class="content-text work-listing">
+                                <p class="heading " style="margin-top:2.4em"><strong>Vice President (Coursework)</strong> at <strong>University of Western Australia Postgraduate Students&#x27; Association</strong>
+                                </p>
+                                <p>Represented postgraduate coursework students at University of Western
+                                    Australia</p>
+                                <p class="highlight">Chairperson of policy and fundraising subcommittees.</p>
+                                <p class="highlight">Member of the Board of Coursework Studies.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content">
+                        <div class="row">
+                            <div class="content-cat big-text">
+                                <p>2013</p>
+                            </div>
+                            <div class="content-text work-listing">
+                                <p class="heading"><strong>Treasurer</strong> at <strong>Department of Earth and Environment Talk Series</strong>
+                                </p>
+                                <p>Managed $1,000 grant for small talk series in UWA&#x27;s geoscience department.</p>
+                                <p
+                                class="highlight">Successfully delivered a budget proposal for $1,000 financial grant.</p>
+                                    <p
+                                    class="highlight">Kept up to date records for all transactions every fortnight across 30
+                                        weeks.</p>
+                                        <p class="highlight">Communicated financial position to committee members.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content">
+                        <div class="row">
+                            <div class="content-cat big-text">Awards
+                                <p>2015</p>
+                            </div>
+                            <div class="content-text work-listing">	<strong><p class="heading" style = "margin-top:2.4em">Postgraduate Scholarship</p></strong>
+	<strong><p class="heading">Commonwealth Scientific and Industrial Research Organisation (CSIRO)</p></strong>
+
+                                <p
+                                class="highlight">Scholarship to support my masters&#x27; year</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content">
+                        <div class="row">
+                            <div class="content-cat big-text">
+                                <p>2012</p>
+                            </div>
+                            <div class="content-text work-listing">	<strong><p class="heading">Summer Scholarship</p></strong>
+	<strong><p class="heading">National Centre for Groundwater Research and Training</p></strong>
+
+                                <p
+                                class="highlight">Scholarship to support my honours&#x27; year.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content">
+                        <div class="row">
+                            <div class="content-cat">Skills</div>
+                            <div class="content-text skills-listing">
+                                <p>	<span class="name">
+											<strong>
+											Programming Languages
+
+											</strong>
+			            	</span>
+	<span>(Intermediate):</span>
+Python, C++, Objective
+                                    C, Mathematica</p>
+                                <p>	<span class="name">
+											<strong>
+											Geoscience Applications
+
+											</strong>
+			            	</span>
+	<span>(Intermediate):</span>
+Processing MODFLOW,
+                                    Flopy, FEFLOW, PHREEQC, ArcGIS ver. 10</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content">
+                        <div class="row">
+                            <div class="content-cat">Interests</div>
+                            <div class="content-text skills-listing">
+                                <p>	<span class="name">
+											<strong>
+												Home Automation and Electronics:
+											</strong>
+			            	</span>
+Prototyping and coupling sensors for real time
+                                    home monitoring on web server.</p>
+                                <p>	<span class="name">
+											<strong>
+												Computer Science:
+											</strong>
+			            	</span>
+Utilising API&#x27;s to integrate multiple applications
+                                    together.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content">
+                        <div class="row">
+                            <div class="content-cat">References
+                                <p>Available upon request</p>
+                            </div>
+                            <div class="content-text skills-listing">
+                                <p>	<span class="name">
+								<br><br>
+								<p style = "margin-top: 4.5em">
+									<strong>
+									Ryan Vogwill
+									</strong>
+									
+								</p>
+							</span>
+
+                                </p>
+                                <p class="highlight">Associate Professor</p>
+                                <p class="highlight">University of Western Australia</p>
+                                <br>
+                                <p>	<span class="name">
+									<p><strong> Andrew Waite </strong></p>
+								
+								</p>
+							</span>
+
+                                </p>
+                                <p class="highlight">Cluster Manager</p>
+                                <p class="highlight">Jaycar Electronics</p>
+                                <br>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+            </div>
+    </body>
+
+</html>
