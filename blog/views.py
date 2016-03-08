@@ -9,4 +9,9 @@ def about (request):
 
 def fitbit (request):
         return render (request, 'fitbit.html')
+
+def tut1 (request):
+        return render (request, 'fitbit/tut1.html')
+
+
 # Create your views here.

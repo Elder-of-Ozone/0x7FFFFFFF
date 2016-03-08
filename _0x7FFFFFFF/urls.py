@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', "blog.views.index", name='index'),
     url(r'^about/', "blog.views.about", name='about'),
-    url(r'^Fitbit/', "blog.views.fitbit", name='fitbit')
+    url(r'^Fitbit/', "blog.views.fitbit", name='fitbit'),
+    url(r'^fitbit/tut1/', "blog.views.tut1", name='tut1')
 ]

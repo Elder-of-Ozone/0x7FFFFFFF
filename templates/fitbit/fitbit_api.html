@@ -8,27 +8,181 @@
 
 {% block body_html %}
 
-<p> I thought I'd share a little project I'm working on as part as my first post.</p>
+<div class = "content container">
+	<div class = "post">
+		<h1 class = "post-title"> Authenticating fitbit with oauth2 and python for continuous or singular usage  </h1>
+		<span class = "post-date"> 2nd March 2016 </span>
 
-<p> I'm writing a little app that syncs my google calender with my fitbit. If you head over to my fitbit page you'll see some of my statistics.  </p>
+		<p>This is the beginning of a series of tutorials on how to combine fitbit's API with 
+		python. All the hard work has been done for us in a library called python-fitbit (LINK)
+		By the end, I hope you can use some of the tools and templates for your
+		projects.</p>
 
-<p> Well my first task revolved around trying to establish a successful connection to the fitbit api.
-This was not as difficult as it may seem. There is an awesome python library that enables you to use the fitbit api cleanly.
-My only reservation with this library is the documentation isn't as up to date as it can be. So i spent most of my time
-reading the actual code. Of course when you're using any library, it is always a good idea to read the code. Not only does this imporive
-ones ability to code but you learn new approaches to various problems.
-</p>
+		<p>I'm not going to start at the beginning because there has been plenty of other
+		good tutorials out there. I recommend reading those first and getting familar with
+		the language. I would also recommend actually reading the fitbit API docs, including
+		the implementation of oauth2.0. </p>
 
-<p>  </p>
-<p>  </p>
-<p>  </p>
-<p>  </p>
-<p>  </p>
-
-
+		<p>So here is a bunch of prerequisite reading for you:
+		*
+		*
+		*
+		*
+		</p>
+-----------------------------------
 
 
+<p>Okay, let's get stuck into it.</p>
+
+<p>For part one, I'm going to show you how to get an initial API application running.
+Now I know you did this with the prerequisite tutorials, however I'm taking
+this one step further actually making an application that will run continuously.</p>
+
+<p>We are going to be using configParser to handle the tokens. You might possibly
+use YAML or JSON if you so desired.</p>
+
+<p>Create a file called config.ini with the content has followed:</p>
+
+[param]
+c_id = [INSERT YOUR CLIENT ID]
+c_secret = [INSERT YOUR CLIENT SECRET]
+
+===
+
+import fitbit
+import ConfigParser
+import time
+
+# Save a file named config.ini with the following contents:
+# c_id      = [INSERT YOUR CLIENT ID]
+# c_secret  = [INSERT YOUR CLIENT SECRET]
 
 
+# first we read our config file
+parser = ConfigParser.RawConfigParser()
+parser.read('config.ini')
+
+# Then we get our client id and secrets. 
+configName = 'param'
+
+client_id = parser.get(configName, 'c_id')
+client_secret = parser.get(configName, 'c_secret')
+
+===
+
+<p>These details are enough to make our first call to the fitbit API and gain consent. 
+If you have read the documents as I suggested, you would have learnt we have two different
+oauth2 methods (implicit and Authoziation code grants). Their importance is out of scope with
+this tutorial but it's worth understanding which method we are implementing for debugging purposes.
+It is also worth noting that the Authorization code grant method does not allow
+for extending token timeouts.</p>
+
+<p>We have been told by fitbit not to use embed the authorization page. So therefore we need access to the browser.
+This means those using headless raspberry pi's won't be able to do this initial step.
+Don't worry though! Just hook up a monitor and you will be ready to go by the end of this
+tutorial. </p>
+
+
+<p>This is probably going to be the most important paragraph in this tutorial so pay attention. 
+Looking through lines  XXX to XXX, we have the initial call to fitbit's API and we print
+a URL. Open this URL and your browser will timeout. Now look at the URL and you'll notice
+that it has changed ending with code=*********************************. Copy and paste your code
+into the awaiting executed python script. </p>
+
+<p>Since we do not want to go through this procedure every time we execute the script,
+we save the tokens. Next time we want to excute the script, we will try to read the 
+refresh and access tokens from the file and convert them to unicode.
+This give us enough information to create an object. </p>
+
+
+
+
+===
+
+try:
+    refresh_token = parser.get(configName, 'r_token')
+	access_token = parser.get('param', 'a_token')
+
+	refresh_token = unicode(refresh_token, "utf-8")
+	access_token =  unicode(access_token, "utf-8")
+	print "Access and Refresh token already created, so let's create our model."
+
+	# Now we create our client model. Note we have oauth2 = true 
+	#since oauth1.0 is depreceiated.
+	client = fitbit.Fitbit(client_id, client_secret, oauth2=True, access_token = access_token, refresh_token = refresh_token) 
+								     
+
+except:
+
+	client = fitbit.Fitbit(client_id, client_secret, oauth2=True)
+
+
+	print client.client.authorize_token_url(expires_in = '86400', redirect_uri='http://127.0.0.1:8080/')
+										     
+	code = raw_input()
+
+	redirect_uri = 'http://127.0.0.1:8080/'
+	client.client.fetch_access_token(code = code, redirect_uri = redirect_uri)
+
+	refresh_token = client.client.token['refresh_token']
+	access_token = client.client.token['access_token']
+
+	parser.set(configName, 'r_token', refresh_token)
+	parser.set(configName, 'a_token', access_token)
+																	     
+	with open('config.ini', 'wb') as configfile:
+		parser.write(configfile)
+	
+	pass
+
+===
+
+<p>Now it's time for the fun bit! What you've all come here to do.
+By following these steps, you can now use the API!</p>
+
+<p>If you want to have the program executed in the background,
+it is best handled with a loop. The important thing here is refreshing
+the tokens and saving to a file. This is because the access token has a lifespan of an hour.
+The refresh token, on the other hand, has a lifepan of 14 days.</p>
+
+<p>If you want to run the program once with crontab etc and do 
+not require a loop, you will still need to refresh tokens at
+the beginning of what you're doing and saving that information
+to a file.</p>
+
+
+
+
+===
+
+while True:
+	client.client.refresh_token()
+	
+	# DO STUFF
+			        
+	print client.sleep()
+					       
+
+	refresh_token = client.client.token['refresh_token']
+	access_token = client.client.token['access_token']
+
+	parser.set(configName, 'r_token', refresh_token)
+	parser.set(configName, 'a_token', access_token)
+													       
+	config = open("config.ini",'wb')
+	parser.write(config)
+	config.close()
+
+	# Halt program for a certain time before starting the loop again. 
+	time.sleep(30)
+
+===
+
+
+<p>That's all there is! If you feel like fixing up anything 
+or have any questions, feel free to issue a ticket or
+pull request on github.</p>
+	</div>
+</div>
 
 {% endblock %}
