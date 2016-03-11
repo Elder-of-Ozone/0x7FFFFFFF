@@ -13,8 +13,11 @@ def fitbit (request):
 def fitbit_blog (request):
         return render (request, 'fitbit/fitbit_blog.html')
 
-def tut1 (request):
-        return render (request, 'fitbit/tut1.html')
+def fitbit_article_1 (request):
+        return render (request, 'fitbit/tutoria1.html')
+
+def fitbit_article_2 (request):
+        return render (request, 'fitbit/tutorial2.html')
 
 def technology (request):
         return render (request, 'technology/technology.html')
