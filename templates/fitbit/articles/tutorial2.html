@@ -1,0 +1,82 @@
+{% extends "index.html" %}
+
+{% block title_html%}
+
+ 0x7FFFFFFF &middot; Technology, the Environment and Life 
+
+{% endblock %}
+
+
+
+{% block body_html %}
+
+<div class = "content container">
+	<div class="post">
+		<h1 class="post-title">  This is an example post  </h1>
+		<span class ="post-date"> 03 Jan 2016 </span>
+
+		<p> Well I hope you enjoyed my first tutorial. The program is very rudamental
+		and there are numerous improvements that can be made. For instance, we can get rid
+		of the whole repetitiveness and encapsulate everything into a class that you can
+		inherit. This method will allow you to override the self.run() method.
+		</p>
+		<p>
+		Instead of actually posting the script line by line, I encourage you to
+		read the script in it's entirety <a href="here">here</a>. I will post snippets
+		every now and then just so you can get an idea what I'm talking about.
+		</p>
+		<p>
+		So what did I mean by encapsulation and inherit? Well it's the pythonic way. 
+		The code is a lot cleaner and easier to read and manage. You'll see why in a
+		moment and I hope you'll understand by the end of the tutorial.
+		</p>
+
+
+		<p>
+		When a class is constructed, it will call the function __init__.
+		This functions contains numerous amounts of try except conditional statements.
+		This is because we do not know what the user has done initially. 
+		When we import our settings, we attempt to load all parameters from our 
+		config file. If they fail, we ask the user to enter their details. Only client id
+		and secret are compulsory with the tokens optional. If the tokens fail to load,
+		we create user. 
+
+		The CreateUser() function serves two purposes. Firstly, it uses the client
+		id and secret to gather access and reresh tokens from fitbit API.
+		If you remember from the first tutorial, the access token has a lifespan of 
+		one hour and the refresh token 12 days. Once the refresh token expires, we 
+		can use this function to begin the process again.
+
+		If the refresh token is still valid, we can use def refresh(self) and 
+		attempt to get new access tokens. The refresh token will need to be executed every
+		so often to ensure the user does not log out. If the refresh token has been successful
+		we can save our tokens using the saveTokens(self) function.
+
+		If the user executes the program and loads all parameters successfully,
+		we can try authenticate with fitbit. If it fails, we go straight to the refresh
+		function to get new tokens.
+
+		If that passes, we attempt to connect with fitbit. This is just something extra
+		I added to determine if everything passes correctly. If it fails, this means
+		something went wrong somewhere. However, given everything leading up to it.
+		Something will break first. 
+
+
+		
+
+		</p>
+		
+		
+
+
+
+
+		</p>
+
+	</div>
+
+
+
+</div>
+
+{% endblock %}

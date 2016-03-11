@@ -10,48 +10,40 @@
 
 {% block body_html %}
 
-		{% include "fitbit/tut2_mainn.html" %}
-		
-		{% include "fitbit/tut1_main.html" %}
-
-
 <div class = "content container">
 	
 	
 	<div class="post">
-		<h1 class="post-title">  This page is still under construction</h1>
-		<span class ="post-date"> 28 Feb 2016 </span>
+		<h1 class="post-title"> We are almost there!  </h1>
+		<span class ="post-date"> 03 March 2016 </span>
 
 		<p> Welcome Internet Explorers</p>
 
-		<p> This is just a website to showcase some of my projects and to write
-			a little about the environment, linux and other IT related stuff.
-			Since this is a relatively new venture, many parts of the site do 
-			not work. The only working link is my 'About Me' section.</p>
-
-		<p> If you're curious as to what 0x7FFFFFFFF, this is the hexdecimal number for
-			2147483647. If you're a bit of a programmer you should recognise this
-			integer very easily. If you're wondering why this number is important.
-			This number is the largest signed integer on a 32 bit system.
-			I hope to write an article later about significant programming bugs
-			that have occurred as a result from not testing integer overflow.
-			</p> 
-
-
-		<p>	More should be coming in the next few days. I hope to get my
-			fitbit section up first. This section will detail some scripts I have made
-			to automate my fitbit with daily life. For example, I have a script that
-			updates my fitbit manually if I have forgotten to wear it.
+		<p>
+			Well the structure of this site is almost there. I never realised
+			just how much work needs to go into the backend side of websites.
+			Well that's a lie. I knew it was difficult but when time is limited,
+			it's a whole new ball game.
 		</p>
 
-		<p>	It is designed by first averaging out all similar events (e.g cycling to work).
-			That data is then updated to the fitbit webserver using their API.
-			I have these scripts written in python and hosted on my webserver.
-			It determines if I have worn my fitbit and cross checks whether
-			I worked that day according to google calendar. The script is relatively
-			simple and just needs to be executed in the background. 
+		<p>
+			There are still a few things that I would like to do. Firstly,
+			I need to get this website talking to the SQLite database so that
+			I can get realtime monitoring data from my hermit crab tank.
+		</p>
 
-		
+		<p>
+			On the otherside of things, I have written two blog posts thus far.
+			The first blog posts is an introductory tutorial on how to integrite
+			fitbit api using python. This is followed by a more advanced tutorial
+			on encapsulation and how to best execute the python script.
+		</p>
+		<p>
+			These blog posts can be found here:<br>
+			<ul>
+				<li><a href="">Authenticating fitbit with oauth2 and python for continuous or singular usage: Part 1</a></li>
+				<li><a href="">Authenticating fitbit with oauth2 and python for continuous or singular usage: Part 2</a></li>
+			</ul>
 		</p>
 	</div>
 

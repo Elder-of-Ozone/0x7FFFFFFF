@@ -1,4 +1,3 @@
-{% block post2_html %}
 
 <div class = "content container">
 	<div class = "post">
@@ -16,7 +15,7 @@
 		the language. I would also recommend actually reading the <a href="https://dev.fitbit.com/docs/">fitbit API docs </a>, including
 		the implementation of <a href="https://dev.fitbit.com/docs/oauth2/"> oauth2.0. </a></p>
 
-		<p>So here is a bunch of prerequisite reading before we begin:
+		<p>So here is a bunch of prerequisite reading for you:
 		<ul>
 			<li><a href="https://roboticape.wordpress.com/2014/01/13/first-steps-into-the-quantified-self-getting-to-know-the-fitbit-api/">Getting to know the Fitbit API</a></li>
 			<li><a href="http://pdwhomeautomation.blogspot.com.au/2016/01/fitbit-api-access-using-oauth20-and.html">Fitbit API access and using oauth2 and raspberry pi </a></li>
@@ -30,16 +29,35 @@
 
 		<p>For part one, I'm going to show you how to get an initial API application running.
 		Now I know you did this with the prerequisite tutorials, however I'm taking
-		this one step further by actually making an application that will run continuously.</p>
+		this one step further actually making an application that will run continuously.</p>
 
-		<p>We are going to be using configParser to handle saving and retrieving tokens locally. If you're feeling adventurous, you can possibly
-		use YAML or JSON if you so desired. However just remember that these tokens need to be in utf-8 format.</p>
+		<p>We are going to be using configParser to handle the tokens. You might possibly
+		use YAML or JSON if you so desired.</p>
 
 		<p>Create a file called config.ini with the content has followed:</p>
 		<pre>[param]
 c_id = [INSERT YOUR CLIENT ID]
 c_secret = [INSERT YOUR CLIENT SECRET]</pre>
 		
+{% load static %}	
+		
+		
+<script type="text/javascript" src="{% static 'js/shCore.js' %}"> </script>
+<script type="text/javascript" src="{% static 'css/shBrushPython.js' %}"> </script>
+
+<link href="{% static  'css/shCore.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/shThemeDefault.css' %}" rel="stylesheet" type="text/css" />
+
+<!-- Include required JS files -->
+<script type="text/javascript" src="js/shCore.js"></script>
+ 
+<!--
+	    At least one brush, here we choose JS. You need to include a brush for every 
+		    language you want to highlight
+-->
+<script type="text/javascript" src="css/shBrushJScript.js"></script>
+ 
+
 
 <p>And here is a snippet of corresponding python code</p>
 
@@ -66,13 +84,17 @@ client_secret = parser.get(configName, 'c_secret')
 		</pre>
 ===
 
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+     SyntaxHighlighter.all()
+</script>
 
 
-		<p>These details are enough to make our first call to the fitbit API and get consent. 
+		<p>These details are enough to make our first call to the fitbit API and gain consent. 
 		If you have read the documents as I suggested, you would have learnt we have two different
-		oauth2 methods (implicit and authoziation code grants). There importance is out of scope with
+		oauth2 methods (implicit and Authoziation code grants). Their importance is out of scope with
 		this tutorial but it's worth understanding which method we are implementing for debugging purposes.
-		It is also worth noting that the authorization code grant method does not allow
+		It is also worth noting that the Authorization code grant method does not allow
 		for extending token timeouts.</p>
 
 		<p>We have been told by fitbit not to use embed the authorization page. So therefore we need access to the browser.
@@ -183,4 +205,3 @@ while True:
 	</div>
 </div>
 
-{% endblock %}
