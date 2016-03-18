@@ -1,0 +1,209 @@
+{% block post2_html %}
+
+<div class = "content container">
+	<div class = "post">
+		<h1 class = "post-title"> Authenticating fitbit with oauth2 and python for continuous or singular usage  </h1>
+		<span class = "post-date"> 2nd March 2016 </span>
+	
+
+		<p>This is the beginning of a series of tutorials on how to combine fitbit's API with 
+		python. All the hard work has been done for us in a library called <a href="https://github.com/orcasgit/python-fitbit/">python-fitbit</a>
+		By the end, I hope you can use some of the tools and templates for your
+		projects.</p>
+
+		<p>I'm not going to start at the beginning because there has been plenty of other
+		good tutorials out there. I recommend reading those first and getting familar with
+		the language. I would also recommend actually reading the <a href="https://dev.fitbit.com/docs/">fitbit API docs </a>, including
+		the implementation of <a href="https://dev.fitbit.com/docs/oauth2/"> oauth2.0. </a></p>
+
+		<p>So here is a bunch of prerequisite reading for you:
+		<ul>
+			<li><a href="https://roboticape.wordpress.com/2014/01/13/first-steps-into-the-quantified-self-getting-to-know-the-fitbit-api/">Getting to know the Fitbit API</a></li>
+			<li><a href="http://pdwhomeautomation.blogspot.com.au/2016/01/fitbit-api-access-using-oauth20-and.html">Fitbit API access and using oauth2 and raspberry pi </a></li>
+		</ul>
+		</p>
+
+		<p>-------------------------------------------------------------------------------------------------</p>
+
+
+		<p>Okay, let's get stuck into it.</p>
+
+		<p>For part one, I'm going to show you how to get an initial API application running.
+		Now I know you did this with the prerequisite tutorials, however I'm taking
+		this one step further actually making an application that will run continuously.</p>
+
+		<p>We are going to be using configParser to handle the tokens. You might possibly
+		use YAML or JSON if you so desired.</p>
+
+		<p>Create a file called config.ini with the content has followed:</p>
+		<pre>[param]
+c_id = [INSERT YOUR CLIENT ID]
+c_secret = [INSERT YOUR CLIENT SECRET]</pre>
+		
+{% load static %}	
+		
+		
+<script type="text/javascript" src="{% static 'js/shCore.js' %}"> </script>
+<script type="text/javascript" src="{% static 'css/shBrushPython.js' %}"> </script>
+
+<link href="{% static  'css/shCore.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/shThemeDefault.css' %}" rel="stylesheet" type="text/css" />
+
+<!-- Include required JS files -->
+<script type="text/javascript" src="js/shCore.js"></script>
+ 
+<!--
+	    At least one brush, here we choose JS. You need to include a brush for every 
+		    language you want to highlight
+-->
+<script type="text/javascript" src="css/shBrushJScript.js"></script>
+ 
+
+
+<p>And here is a snippet of corresponding python code</p>
+
+
+<pre class = "brush: python">
+
+import fitbit
+import ConfigParser
+import time
+
+# Save a file named config.ini with the following contents:
+# c_id      = [INSERT YOUR CLIENT ID]
+# c_secret  = [INSERT YOUR CLIENT SECRET]
+
+# first we read our config file
+parser = ConfigParser.RawConfigParser()
+parser.read('config.ini')
+
+# Then we get our client id and secrets. 
+configName = 'param'
+
+client_id = parser.get(configName, 'c_id')
+client_secret = parser.get(configName, 'c_secret')
+		</pre>
+===
+
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+     SyntaxHighlighter.all()
+</script>
+
+
+		<p>These details are enough to make our first call to the fitbit API and gain consent. 
+		If you have read the documents as I suggested, you would have learnt we have two different
+		oauth2 methods (implicit and Authoziation code grants). Their importance is out of scope with
+		this tutorial but it's worth understanding which method we are implementing for debugging purposes.
+		It is also worth noting that the Authorization code grant method does not allow
+		for extending token timeouts.</p>
+
+		<p>We have been told by fitbit not to use embed the authorization page. So therefore we need access to the browser.
+		This means those using headless raspberry pi's won't be able to do this initial step.
+		Don't worry though! Just hook up a monitor and you will be ready to go by the end of this
+		tutorial. </p>
+
+
+		<p>This is probably going to be the most important paragraph in this tutorial so pay attention. 
+		Looking through lines  XXX to XXX, we have the initial call to fitbit's API and we print
+		a URL. Open this URL and your browser will timeout. Now look at the URL and you'll notice
+		that it has changed ending with code=*********************************. Copy and paste your code
+		into the awaiting executed python script. </p>
+
+		<p>Since we do not want to go through this procedure every time we execute the script,
+		we save the tokens. Next time we want to excute the script, we will try to read the 
+		refresh and access tokens from the file and convert them to unicode.
+		This give us enough information to create an object. </p>
+
+
+
+
+
+
+<pre>try:
+    refresh_token = parser.get(configName, 'r_token')
+	access_token = parser.get('param', 'a_token')
+
+	refresh_token = unicode(refresh_token, "utf-8")
+	access_token =  unicode(access_token, "utf-8")
+	print "Access and Refresh token already created, so let's create our model."
+
+	# Now we create our client model. Note we have oauth2 = true 
+	#since oauth1.0 is depreceiated.
+	client = fitbit.Fitbit(client_id, client_secret, oauth2=True, access_token = access_token, refresh_token = refresh_token) 
+								     
+
+except:
+
+	client = fitbit.Fitbit(client_id, client_secret, oauth2=True)
+
+
+	print client.client.authorize_token_url(expires_in = '86400', redirect_uri='http://127.0.0.1:8080/')
+										     
+	code = raw_input()
+
+	redirect_uri = 'http://127.0.0.1:8080/'
+	client.client.fetch_access_token(code = code, redirect_uri = redirect_uri)
+
+	refresh_token = client.client.token['refresh_token']
+	access_token = client.client.token['access_token']
+
+	parser.set(configName, 'r_token', refresh_token)
+	parser.set(configName, 'a_token', access_token)
+																	     
+	with open('config.ini', 'wb') as configfile:
+		parser.write(configfile)
+	
+	pass
+</pre>
+
+
+		<p>Now it's time for the fun bit! What you've all come here to do.
+		By following these steps, you can now use the API!</p>
+
+		<p>If you want to have the program executed in the background,
+		it is best handled with a loop. The important thing here is refreshing
+		the tokens and saving to a file. This is because the access token has a lifespan of an hour.
+		The refresh token, on the other hand, has a lifepan of 14 days.</p>
+
+		<p>If you want to run the program once with crontab etc and do 
+		not require a loop, you will still need to refresh tokens at
+		the beginning of what you're doing and saving that information
+		to a file.</p>
+
+
+
+		<pre>
+
+
+while True:
+	client.client.refresh_token()
+	
+	# DO STUFF
+			        
+	print client.sleep()
+					       
+
+	refresh_token = client.client.token['refresh_token']
+	access_token = client.client.token['access_token']
+
+	parser.set(configName, 'r_token', refresh_token)
+	parser.set(configName, 'a_token', access_token)
+													       
+	config = open("config.ini",'wb')
+	parser.write(config)
+	config.close()
+
+	# Halt program for a certain time before starting the loop again. 
+	time.sleep(30)
+
+
+		</pre>
+
+		<p>That's all there is! If you feel like fixing up anything 
+		or have any questions, feel free to issue a ticket or
+		pull request on github.</p>
+	</div>
+</div>
+
+{% endblock %}

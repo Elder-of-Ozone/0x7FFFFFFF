@@ -13,18 +13,20 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url
+from django.conf.urls import *
 from django.contrib import admin
-from blog import views
+from blog.views import *
 
-
-urlpatterns = [
+urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', "blog.views.index", name='index'),
-    url(r'^about/', "blog.views.about", name='about'),
-    url(r'^technology/', "blog.views.technology", name='technology'),
-    url(r'^environment/', "blog.views.environment", name='environment'),
-    url(r'^fitbit/', "blog.views.fitbit", name='fitbit'),
-    url(r'^fitbit_blog/', "blog.views.fitbit_blog", name='fitbit_blog'),
-    url(r'^fitbit/tut1/', "blog.views.tut1", name='tut1')
-]
+    url(r'^$', index),
+    url(r'^about/$', about),
+    url(r'^fitbit/$',fitbit),
+    url(r'^blog/$', blog),
+    url(r'^blog/technology/$', technology),
+    url(ur'^blog/technology/(?P<entry>[^/]+)$', technology_blog_entry),
+    url(r'^blog/environment/$', environment),
+    url(ur'^blog/fitbit/(?P<entry>[^/]+)', fitbit_blog_entry),
+    url(r'^blog/fitbit/$', fitbit_blog),
+    url(r'^blog/life$', life),
+)
