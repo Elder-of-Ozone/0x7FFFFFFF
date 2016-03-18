@@ -21,16 +21,16 @@ def fitbit_blog_entry (request, entry):
         return render (request, 'blog_pages/fitbit/articles/'+entry+'.html')
 
 def technology (request):
-        return render (request, 'technology/technology.html')
+        return render (request, 'blog_pages/technology/technology.html')
 
 def technology_blog_entry (request, entry):
-        return render (request, 'blog_pages/technology/articles'+entry+'.html')
+        return render (request, 'blog_pages/technology/articles/'+entry+'.html')
 
 def environment (request):
-        return render (request, 'environment/environment.html')
+        return render (request, 'blog_pages/environment/environment.html')
 
-def environment_blog_entry (request,):
-        return render (request, 'blog_pages/environment/articles'+entry+'.html')
+def environment_blog_entry (request, entry):
+        return render (request, 'blog_pages/environment/articles/'+entry+'.html')
 
 def life (request):
         return render (request, 'life/life.html')

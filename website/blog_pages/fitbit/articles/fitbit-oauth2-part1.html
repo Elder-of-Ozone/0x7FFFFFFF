@@ -12,8 +12,7 @@
 
 		<p>This is the beginning of a series of tutorials on how to combine fitbit's API with 
 		python. All the hard work has been done for us in a library called <a href="https://github.com/orcasgit/python-fitbit/">python-fitbit</a>
-		By the end, I hope you can use some of the tools and templates for your
-		projects.</p>
+		By the end, I hope you can use some of the tools and templates for your projects. <a href="https://github.com/Elder-of-Ozone/fitbit-oauth2">Github Page</a>.</p>
 
 		<p>I'm not going to start at the beginning because there has been plenty of other
 		good tutorials out there. I recommend reading those first and getting familar with
@@ -27,44 +26,46 @@
 		</ul>
 		</p>
 
+		<p>I have just been informed that you might need to update the python-fitbit library. So please do so before continuing.
+		   If it is still not working, please lodge a github issue.
+		</p>
+
+
+
 		<p>-------------------------------------------------------------------------------------------------</p>
 
+		
+		<p>
+		Okay, let's get stuck into it. 
+		</p>
 
-		<p>Okay, let's get stuck into it.</p>
+		<p>
+		I'm going to show you how to get an initial API application running. You've done this previously
+		in the prerequisites that I linked earlier. However, I'm taking this one step further by showing you
+		how to make an application run continuously. This is incredibly useful if, like me, you have a 
+		server running to constantly gather user data.
+		</p>
+		
+		<p>
+		There are two scripts both available <a href="https://github.com/Elder-of-Ozone/fitbit-oauth2">here</a>. The first script,
+		production_template.py, is for this tutorial. It's a quick easy solution and not intended for full implementation. The 
+		second script, fitbit_oauth2.py is fully encapsulated and perfect for large projects. 
+		</p>
 
-		<p>For part one, I'm going to show you how to get an initial API application running.
-		Now I know you did this with the prerequisite tutorials, however I'm taking
-		this one step further actually making an application that will run continuously.</p>
+		<p>
+		The first thing you should know is configParser. ConfigParser is how we will handle tokens. You can use
+		YAML or JSON if you desire, but for this tutorial, we are going to use configParser.
+		</p>
 
-		<p>We are going to be using configParser to handle the tokens. You might possibly
-		use YAML or JSON if you so desired.</p>
-
-		<p>Create a file called config.ini with the content has followed:</p>
+		<p>The first thing you need to do is gather your credentials. This is your client_id and your client_secret. 
+		Once you have those credentials at hand, create a file called config.ini and include the following contents;
+		remembering to add your credentials where required.</p>
 		<pre>[param]
 c_id = [INSERT YOUR CLIENT ID]
 c_secret = [INSERT YOUR CLIENT SECRET]</pre>
 		
-{% load static %}	
-		
-		
-<script type="text/javascript" src="{% static 'js/shCore.js' %}"> </script>
-<script type="text/javascript" src="{% static 'css/shBrushPython.js' %}"> </script>
 
-<link href="{% static  'css/shCore.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/shThemeDefault.css' %}" rel="stylesheet" type="text/css" />
-
-<!-- Include required JS files -->
-<script type="text/javascript" src="js/shCore.js"></script>
- 
-<!--
-	    At least one brush, here we choose JS. You need to include a brush for every 
-		    language you want to highlight
--->
-<script type="text/javascript" src="css/shBrushJScript.js"></script>
- 
-
-
-<p>And here is a snippet of corresponding python code</p>
+		<p>Now create a python file and add the following snippet</p>
 
 
 <pre class = "brush: python">
@@ -73,7 +74,9 @@ import fitbit
 import ConfigParser
 import time
 
+# JUST ANOTHER REMINDER
 # Save a file named config.ini with the following contents:
+# [param]
 # c_id      = [INSERT YOUR CLIENT ID]
 # c_secret  = [INSERT YOUR CLIENT SECRET]
 
@@ -89,37 +92,31 @@ client_secret = parser.get(configName, 'c_secret')
 		</pre>
 ===
 
-<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
-<script type="text/javascript">
-     SyntaxHighlighter.all()
-</script>
 
 
 		<p>These details are enough to make our first call to the fitbit API and gain consent. 
 		If you have read the documents as I suggested, you would have learnt we have two different
-		oauth2 methods (implicit and Authoziation code grants). Their importance is out of scope with
+		oauth2 methods (implicit and authoziation code grants). Their importance is out of scope with
 		this tutorial but it's worth understanding which method we are implementing for debugging purposes.
-		It is also worth noting that the Authorization code grant method does not allow
+		It is also worth noting that the authorization code grant method does not allow
 		for extending token timeouts.</p>
 
-		<p>We have been told by fitbit not to use embed the authorization page. So therefore we need access to the browser.
-		This means those using headless raspberry pi's won't be able to do this initial step.
-		Don't worry though! Just hook up a monitor and you will be ready to go by the end of this
-		tutorial. </p>
+		<p>We have been told by fitbit not to use embeded authorization pages so therefore we need access to the browser.
+		If you have a raspberry pi headless, this step can missed entirely if you use gather_keys_oauth2.py (found in python-fitbit).
+		Simply put the refresh and access token under r_token and a_token respectively in your config.ini. 
+		</p>
 
 
 		<p>This is probably going to be the most important paragraph in this tutorial so pay attention. 
-		Looking through lines  XXX to XXX, we have the initial call to fitbit's API and we print
-		a URL. Open this URL and your browser will timeout. Now look at the URL and you'll notice
-		that it has changed ending with code=*********************************. Copy and paste your code
-		into the awaiting executed python script. </p>
+		Look through the next snippet of code,  we have our initial call to fitbit's API and we print
+		a URL. Open this URL and your browser will timeout. Don't freak out! Hopefully the url changed.
+		If it has, take another look and you'll notice this pattern at the end code=*****. Copy and paste
+		the code at the end into the awaiting python script </p>
 
 		<p>Since we do not want to go through this procedure every time we execute the script,
 		we save the tokens. Next time we want to excute the script, we will try to read the 
 		refresh and access tokens from the file and convert them to unicode.
-		This give us enough information to create an object. </p>
-
-
+		This gives us enough information to create an object. </p>
 
 
 
@@ -172,7 +169,7 @@ except:
 
 		<p>If you want to run the program once with crontab etc and do 
 		not require a loop, you will still need to refresh tokens at
-		the beginning of what you're doing and saving that information
+		the beginning and saving that information
 		to a file.</p>
 
 
@@ -207,6 +204,15 @@ while True:
 		<p>That's all there is! If you feel like fixing up anything 
 		or have any questions, feel free to issue a ticket or
 		pull request on github.</p>
+
+
+		<p>
+		The second part of the tutorial can be found <a href="http://0x7fffffff.xyz/blog/fitbit/fitbit-oauth2-part2">here</a> (or below). Here, we encapsulate
+		what we have done which in turn makes it more assessible and easier to read.
+		</p>
+
+
+
 	</div>
 </div>
 
